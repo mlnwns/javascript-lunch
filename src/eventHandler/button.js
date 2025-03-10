@@ -2,6 +2,7 @@ import { restaurants } from "../mock-data/restaurantData";
 import { $ } from "../utils/domHelpers";
 import restaurantList from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
+import { escapeHtml } from "../utils/escapeHtml";
 
 const buttonHandler = (event) => {
   event.preventDefault();
@@ -14,11 +15,11 @@ const buttonHandler = (event) => {
   const $link = $("#link");
 
   const newRestaurant = {
-    category: $category.value,
-    title: $name.value,
-    distance: $distance.value,
-    description: $description.value,
-    link: $link.value,
+    category: escapeHtml($category.value),
+    title: escapeHtml($name.value),
+    distance: escapeHtml($distance.value),
+    description: escapeHtml($description.value),
+    link: escapeHtml($link.value),
   };
 
   if (
