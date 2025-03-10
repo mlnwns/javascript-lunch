@@ -6,6 +6,7 @@ const textArea = (props) => {
     rows = "5",
     spanText,
     isRequired = false,
+    placeholder = "",
   } = props;
 
   const required = isRequired ? "required" : "";
@@ -19,6 +20,7 @@ const textArea = (props) => {
     rows=${rows}
     ${required}
     maxLength= "1000"
+    placeholder="${placeholder}"
     ></textarea>
     <span class="help-text text-caption">${spanText}</span>
     `;

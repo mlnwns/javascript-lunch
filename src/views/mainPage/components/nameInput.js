@@ -10,12 +10,13 @@ const nameInput = () => {
       id: "name",
       labelText: "이름",
       isRequired: true,
+      placeholder: "20자 이내로 입력해 주세요.",
     })}
 `;
 
   $inputContainer.addEventListener("input", (event) => {
     if (event.target.value.length > 20) {
-      alert(() => ERROR.INVALID_INPUT_LENGTH(20));
+      alert(ERROR.INVALID_INPUT_LENGTH(20));
     }
   });
 
