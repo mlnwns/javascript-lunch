@@ -6,9 +6,9 @@ const dropDown = (props) => {
   return `
     <label for=${id} text-caption">${labelText}</label>
     <select name=${id} id=${id} ${required}>
-     ${options.map((option) => {
-       return `<option value=${option.value}>${option.text}</option>`;
-     })}
+     ${options.map(
+       (option) => `<option value=${option.value}>${option.text}</option>`
+     )}
     </select>
     `;
 };

@@ -13,8 +13,6 @@ const categorySelect = () => {
       isRequired: true,
     })}
   `;
-
-  return $categorySelectContainer;
 };
 
 export default categorySelect;

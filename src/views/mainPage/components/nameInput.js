@@ -26,8 +26,6 @@ const nameInput = () => {
       event.target.value = "";
     }
   });
-
-  return $inputContainer;
 };
 
 export default nameInput;

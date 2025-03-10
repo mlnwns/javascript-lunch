@@ -17,8 +17,6 @@ const description = () => {
     spanText: "메뉴 등 추가 정보를 입력해 주세요.",
     placeholder: "1000자 이내로 입력해 주세요.",
   });
-
-  return $descriptionContainer;
 };
 
 export default description;

@@ -1,6 +1,6 @@
 import { $ } from "../../../utils/domHelpers.js";
 import restaurantItem from "../../../components/restaurantItem.js";
-import { restaurants } from "../../../constants/restaurantData.js";
+import { restaurants } from "../../../mock-data/restaurantData.js";
 
 const restaurantList = () => {
   const $restaurantContainer = $(".restaurant-list");
@@ -8,8 +8,6 @@ const restaurantList = () => {
   $restaurantContainer.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))
     .join("");
-
-  return $restaurantContainer;
 };
 
 export default restaurantList;

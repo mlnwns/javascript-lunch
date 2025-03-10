@@ -21,8 +21,6 @@ const linkInput = () => {
       placeholder: "300자 이내로 입력해 주세요.",
     })}
   `;
-
-  return $linkInputContainer;
 };
 
 export default linkInput;

@@ -13,8 +13,6 @@ const distanceSelect = () => {
       isRequired: true,
     })}
   `;
-
-  return $distanceSelectContainer;
 };
 
 export default distanceSelect;
