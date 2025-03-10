@@ -1,4 +1,4 @@
-import { restaurants } from "../constants/restaurantData";
+import { restaurants } from "../mock-data/restaurantData";
 import { $ } from "../utils/domHelpers";
 import restaurantList from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
