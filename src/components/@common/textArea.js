@@ -19,7 +19,6 @@ const textArea = (props) => {
     cols=${cols}
     rows=${rows}
     ${required}
-    maxLength= "1000"
     placeholder="${placeholder}"
     ></textarea>
     <span class="help-text text-caption">${spanText}</span>

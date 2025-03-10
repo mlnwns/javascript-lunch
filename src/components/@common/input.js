@@ -6,7 +6,6 @@ const input = (props) => {
     id,
     isRequired = false,
     spanText = "",
-    maxLength = "20",
     placeholder = "",
   } = props;
 
@@ -14,7 +13,7 @@ const input = (props) => {
 
   return `
         <label for="${id} text-caption">${labelText}</label>
-        <input type="text" name=${id} id=${id} ${required} maxLength=${maxLength} placeholder="${placeholder}"/>
+        <input type="text" name=${id} id=${id} ${required} placeholder="${placeholder}"/>
         <span class="help-text text-caption">${spanText}</span>
     `;
 };

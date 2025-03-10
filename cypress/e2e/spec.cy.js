@@ -42,7 +42,7 @@ context("공통 설정", () => {
     });
   });
 
-  describe("음식점 추가 모달 기능 실패 동작 테스트", () => {
+  describe("음식점 추가 모달 alert 동작 테스트", () => {
     it("필수입력 값이 입력되지 않으면 alert가 작동한다", () => {
       cy.get(".gnb__button > img").click();
       cy.get("#category").select("한식");
@@ -75,6 +75,59 @@ context("공통 설정", () => {
       cy.get("@alertSpy").should(
         "have.been.calledOnceWith",
         ERROR.INVALID_EMPTY_INPUT
+      );
+    });
+
+    it("이름 입력값이 20글자를 초과하면 alert가 작동한다", () => {
+      cy.get(".gnb__button > img").click();
+      cy.get("#category").select("한식");
+      cy.get("#distance").select("10");
+
+      cy.window().then((win) => {
+        cy.spy(win, "alert").as("alertSpy");
+      });
+
+      cy.get("#name").type("a".repeat(21));
+
+      cy.get("@alertSpy").should(
+        "have.been.calledOnceWith",
+        ERROR.INVALID_INPUT_LENGTH(20)
+      );
+    });
+
+    it("설명 입력값이 1000글자를 초과하면 alert가 작동한다", () => {
+      cy.get(".gnb__button > img").click();
+      cy.get("#category").select("한식");
+      cy.get("#distance").select("10");
+      cy.get("#name").type("테스트음식점");
+
+      cy.window().then((win) => {
+        cy.spy(win, "alert").as("alertSpy");
+      });
+
+      cy.get("#description").type("a".repeat(1001));
+
+      cy.get("@alertSpy").should(
+        "have.been.calledOnceWith",
+        ERROR.INVALID_INPUT_LENGTH(1000)
+      );
+    });
+
+    it("링크 입력값이 300글자를 초과하면 alert가 작동한다", () => {
+      cy.get(".gnb__button > img").click();
+      cy.get("#category").select("한식");
+      cy.get("#distance").select("10");
+      cy.get("#name").type("테스트음식점");
+
+      cy.window().then((win) => {
+        cy.spy(win, "alert").as("alertSpy");
+      });
+
+      cy.get("#link").type("a".repeat(301));
+
+      cy.get("@alertSpy").should(
+        "have.been.calledOnceWith",
+        ERROR.INVALID_INPUT_LENGTH(300)
       );
     });
   });
