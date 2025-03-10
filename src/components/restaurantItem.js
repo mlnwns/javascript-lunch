@@ -1,10 +1,10 @@
 import text from "./@common/text";
-import koreanIcon from "../../public/category-korean.png";
-import chineseIcon from "../../public/category-chinese.png";
-import japaneseIcon from "../../public/category-japanese.png";
-import westernIcon from "../../public/category-western.png";
-import asianIcon from "../../public/category-asian.png";
-import etcIcon from "../../public/category-etc.png";
+import koreanIcon from "/category-korean.png";
+import chineseIcon from "/category-chinese.png";
+import japaneseIcon from "/category-japanese.png";
+import westernIcon from "/category-western.png";
+import asianIcon from "/category-asian.png";
+import etcIcon from "/category-etc.png";
 const categoryIcons = {
   korean: koreanIcon,
   chinese: chineseIcon,
