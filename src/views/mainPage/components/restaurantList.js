@@ -6,7 +6,7 @@ import { getStorage } from "../../../utils/storage.js";
 const restaurantList = () => {
   const $restaurantContainer = $(".restaurant-list");
 
-  const restaurants = getStorage("restaurants");
+  const restaurants = getStorage("restaurants") ?? [];
 
   $restaurantContainer.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))

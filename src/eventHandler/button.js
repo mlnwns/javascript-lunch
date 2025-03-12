@@ -34,7 +34,7 @@ const buttonHandler = (event) => {
     return;
   }
 
-  const restaurants = getStorage("restaurants");
+  const restaurants = getStorage("restaurants") ?? [];
   setStorage("restaurants", [...restaurants, newRestaurant]);
 
   const $restaurantModal = $("#restaurant-modal");

@@ -24,9 +24,9 @@ const categoryAlt = {
 };
 
 const restaurantItem = (props) => {
-  const { category, title, distance, description } = props;
+  const { category, title, distance, description, id, isFavorite } = props;
   return `
-    <li class="restaurant">
+    <li class="restaurant" >
       <div class="restaurant__category">
         <img
           src="${categoryIcons[category]}"
@@ -46,7 +46,9 @@ const restaurantItem = (props) => {
           ${description}
         </p>
       </div>
-      <img src=/favorite-icon-lined.png alt="favorite icon" class="favorite-icon">
+      <img data-id="${id}" src="${
+    isFavorite ? "/favorite-icon-filled.png" : "/favorite-icon-lined.png"
+  }" alt="favorite icon" class="favorite-icon">
     </li>
   `;
 };

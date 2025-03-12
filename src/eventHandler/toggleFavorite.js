@@ -1,5 +1,18 @@
+import { getStorage, setStorage } from "../utils/storage.ts";
+
 const toggleFavorite = (event) => {
   const $icon = event.target;
+  const restaurantId = $icon.dataset.id;
+  let restaurants = getStorage("restaurants");
+
+  restaurants = restaurants.map((restaurant) => {
+    if (restaurant.id === restaurantId) {
+      return { ...restaurant, isFavorite: !restaurant.isFavorite };
+    }
+    return restaurant;
+  });
+
+  setStorage("restaurants", restaurants);
 
   if ($icon.classList.contains("favorite-icon")) {
     if ($icon.src.includes("/favorite-icon-filled.png")) {
