@@ -1,8 +1,8 @@
-import { restaurants } from "../mock-data/restaurantData";
 import { $ } from "../utils/domHelpers";
 import restaurantList from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
 import { escapeHtml } from "../utils/escapeHtml";
+import { setStorage, getStorage } from "../utils/storage";
 
 const buttonHandler = (event) => {
   event.preventDefault();
@@ -20,6 +20,7 @@ const buttonHandler = (event) => {
     distance: escapeHtml($distance.value),
     description: escapeHtml($description.value),
     link: escapeHtml($link.value),
+    isFavorite: false,
   };
 
   if (
@@ -31,7 +32,8 @@ const buttonHandler = (event) => {
     return;
   }
 
-  restaurants.push(newRestaurant);
+  const restaurantList = getStorage("restaurants");
+  setStorage("restaurants", [...restaurantList, newRestaurant]);
 
   const $restaurantModal = $("#restaurant-modal");
   $restaurantModal.classList.remove("modal--open");
