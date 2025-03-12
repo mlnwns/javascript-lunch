@@ -1,5 +1,5 @@
 import dropDown from "../../../components/@common/dropDown";
-import { distanceOptions } from "../../../constants/options";
+import { DISTANCE_OPTIONS } from "../../../constants/options";
 import { $ } from "../../../utils/domHelpers";
 
 const distanceSelect = () => {
@@ -9,7 +9,7 @@ const distanceSelect = () => {
     ${dropDown({
       id: "distance",
       labelText: "거리(도보 이동 시간)",
-      options: distanceOptions,
+      options: DISTANCE_OPTIONS,
       isRequired: true,
     })}
   `;

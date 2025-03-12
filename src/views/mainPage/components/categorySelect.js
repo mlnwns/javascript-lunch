@@ -1,5 +1,5 @@
 import dropDown from "../../../components/@common/dropDown";
-import { categoryOptions } from "../../../constants/options";
+import { CATEGORY_OPTIONS } from "../../../constants/options";
 import { $ } from "../../../utils/domHelpers";
 
 const categorySelect = () => {
@@ -9,7 +9,7 @@ const categorySelect = () => {
     ${dropDown({
       id: "category",
       labelText: "카테고리",
-      options: categoryOptions,
+      options: CATEGORY_OPTIONS,
       isRequired: true,
     })}
   `;
