@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import { $ } from "../utils/domHelpers";
 import restaurantList from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
@@ -15,6 +16,7 @@ const buttonHandler = (event) => {
   const $link = $("#link");
 
   const newRestaurant = {
+    id: uuidv4(),
     category: escapeHtml($category.value),
     title: escapeHtml($name.value),
     distance: escapeHtml($distance.value),
@@ -32,8 +34,8 @@ const buttonHandler = (event) => {
     return;
   }
 
-  const restaurantList = getStorage("restaurants");
-  setStorage("restaurants", [...restaurantList, newRestaurant]);
+  const restaurants = getStorage("restaurants");
+  setStorage("restaurants", [...restaurants, newRestaurant]);
 
   const $restaurantModal = $("#restaurant-modal");
   $restaurantModal.classList.remove("modal--open");
