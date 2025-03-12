@@ -1,3 +1,4 @@
+import { getStorage } from "../../utils/storage";
 import buttonContainer from "./components/buttonContainer";
 import categoryFilter from "./components/categoryFilter";
 import categorySelect from "./components/categorySelect";
@@ -9,7 +10,9 @@ import restaurantList from "./components/restaurantList";
 import sortingFilter from "./components/sortingFilter";
 
 const renderMainPage = () => {
-  restaurantList();
+  const restaurants = getStorage("restaurants") ?? [];
+
+  restaurantList(restaurants);
   categoryFilter();
   sortingFilter();
   buttonContainer();

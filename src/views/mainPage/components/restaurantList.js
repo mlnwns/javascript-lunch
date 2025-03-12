@@ -3,10 +3,8 @@ import restaurantItem from "../../../components/restaurantItem.js";
 import toggleFavorite from "../../../eventHandler/toggleFavorite.js";
 import { getStorage } from "../../../utils/storage.js";
 
-const restaurantList = () => {
+const restaurantList = (restaurants) => {
   const $restaurantContainer = $(".restaurant-list");
-
-  const restaurants = getStorage("restaurants") ?? [];
 
   $restaurantContainer.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))
@@ -16,6 +14,11 @@ const restaurantList = () => {
   $favoriteIcons.forEach(($icon) => {
     $icon.addEventListener("click", toggleFavorite);
   });
+};
+
+export const replaceRestaurantList = (list) => {
+  $(".restaurant-list").replaceChildren();
+  restaurantList(list);
 };
 
 export default restaurantList;

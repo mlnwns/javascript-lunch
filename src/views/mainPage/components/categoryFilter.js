@@ -1,5 +1,6 @@
 import select from "../../../components/@common/select.js";
 import { CATEGORY_FILTER_OPTIONS } from "../../../constants/options.js";
+import categoryFilterHandler from "../../../eventHandler/categoryFilter.js";
 import { $ } from "../../../utils/domHelpers.js";
 
 const categoryFilter = () => {
@@ -11,6 +12,8 @@ const categoryFilter = () => {
   });
 
   $(".restaurant-filter-container").appendChild(categorySelect);
+
+  categorySelect.addEventListener("change", categoryFilterHandler);
 };
 
 export default categoryFilter;
