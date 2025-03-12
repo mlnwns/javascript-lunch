@@ -1,4 +1,3 @@
-import { restaurants } from "../../../mock-data/restaurantData.js";
 import restaurantList from "./restaurantList.js";
 import { $ } from "../../../utils/domHelpers.js";
 import button from "../../../components/@common/button.js";
