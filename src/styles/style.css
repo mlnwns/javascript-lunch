@@ -115,7 +115,6 @@ body {
 .restaurant-list-container {
   display: flex;
   flex-direction: column;
-
   padding: 0 16px;
   margin: 16px 0;
 }
@@ -123,7 +122,7 @@ body {
 .restaurant {
   display: flex;
   align-items: flex-start;
-
+  justify-content: space-between;
   padding: 16px 8px;
 
   border-bottom: 1px solid #e9eaed;
@@ -151,6 +150,7 @@ body {
 
 .restaurant__info {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -291,4 +291,10 @@ input[name="link"] {
   background: var(--primary-color);
 
   color: var(--grey-100);
+}
+
+.favorite-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }

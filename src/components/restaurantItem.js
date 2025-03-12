@@ -13,14 +13,24 @@ const categoryIcons = {
   asian: asianIcon,
   etc: etcIcon,
 };
+
+const categoryAlt = {
+  korean: "한식",
+  chinese: "중식",
+  japanese: "일식",
+  western: "양식",
+  asian: "아시아식",
+  etc: "기타",
+};
+
 const restaurantItem = (props) => {
-  const { category, categoryAlt, title, distance, description } = props;
+  const { category, title, distance, description } = props;
   return `
     <li class="restaurant">
       <div class="restaurant__category">
         <img
           src="${categoryIcons[category]}"
-          alt="${categoryAlt}"
+          alt="${categoryAlt[category]}"
           class="category-icon"
         />
       </div>
@@ -36,6 +46,7 @@ const restaurantItem = (props) => {
           ${description}
         </p>
       </div>
+      <img src=/favorite-icon-lined.png alt="favorite icon" class="favorite-icon">
     </li>
   `;
 };
