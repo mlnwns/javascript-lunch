@@ -42,7 +42,7 @@ const buttonHandler = (event) => {
 
   $form.reset();
 
-  restaurantList();
+  restaurantList([...restaurants, newRestaurant]);
 };
 
 export default buttonHandler;

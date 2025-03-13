@@ -31,3 +31,5 @@ export const SORTING_FILTER_OPTIONS = [
   { value: "name", label: "이름순" },
   { value: "distance", label: "거리순" },
 ];
+
+export const SORTING_DEFAULT = "name";
