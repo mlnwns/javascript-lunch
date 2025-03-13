@@ -287,6 +287,19 @@ input[name="link"] {
   color: var(--grey-300);
 }
 
+.button--close {
+  background: var(--primary-color);
+
+  color: var(--grey-100);
+}
+
+.button--delete {
+  border: 1px solid var(--grey-300);
+  background: transparent;
+
+  color: var(--grey-300);
+}
+
 .button--primary {
   background: var(--primary-color);
 
@@ -304,6 +317,12 @@ input[name="link"] {
 }
 
 .detail-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-footer {
+  margin-top: 32px;
   display: flex;
   justify-content: space-between;
 }

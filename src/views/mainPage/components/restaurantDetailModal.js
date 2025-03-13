@@ -64,6 +64,10 @@ const restaurantDetailModal = (restaurantData) => {
           ${restaurantData.link}
         </a>
       </div>
+      <div class="detail-footer">
+        <button type="button" class="button button--delete">삭제하기</button>
+        <button type="button" class="button button--close">닫기</button>
+      </div>
     </form>
   `;
 
