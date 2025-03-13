@@ -1,6 +1,7 @@
 import { getStorage, setStorage } from "../utils/storage.ts";
 
 const toggleFavorite = (event) => {
+  event.stopPropagation();
   const $icon = event.target;
   const restaurantId = $icon.dataset.id;
   let restaurants = getStorage("restaurants");
