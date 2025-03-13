@@ -1,20 +1,17 @@
 import select from "../../../components/@common/select.js";
 import { SORTING_FILTER_OPTIONS } from "../../../constants/options.js";
-import sortingFilterHandler from "../../../eventHandler/sortingFilter.js";
-
 import { $ } from "../../../utils/domHelpers.js";
+import updateRestaurantList from "./restaurantList.js";
 
 const sortingFilter = () => {
-  const sortingSelect = select({
-    id: "sorting-filter",
-    name: "sorting",
+  const $sortingSelect = select({
     options: SORTING_FILTER_OPTIONS,
-    className: "restaurant-filter",
+    id: "sorting-filter",
   });
 
-  $(".restaurant-filter-container").appendChild(sortingSelect);
+  $(".restaurant-filter-container").appendChild($sortingSelect);
 
-  sortingSelect.addEventListener("change", sortingFilterHandler);
+  $sortingSelect.addEventListener("change", updateRestaurantList);
 };
 
 export default sortingFilter;

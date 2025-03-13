@@ -33,3 +33,4 @@ export const SORTING_FILTER_OPTIONS = [
 ];
 
 export const SORTING_DEFAULT = "name";
+export const CATEGORY_DEFAULT = "all";

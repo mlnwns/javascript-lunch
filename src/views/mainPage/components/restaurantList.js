@@ -1,24 +1,38 @@
 import { $ } from "../../../utils/domHelpers.js";
+import { getStorage } from "../../../utils/storage.js";
+import { sortRestaurants } from "../../../domain/sortRestaurants.js";
 import restaurantItem from "../../../components/restaurantItem.js";
 import toggleFavorite from "../../../eventHandler/toggleFavorite.js";
-import { getStorage } from "../../../utils/storage.js";
+import {
+  CATEGORY_DEFAULT,
+  SORTING_DEFAULT,
+} from "../../../constants/options.js";
 
-const restaurantList = (restaurants) => {
-  const $restaurantContainer = $(".restaurant-list");
+const updateRestaurantList = () => {
+  const restaurants = getStorage("restaurants") ?? [];
 
-  $restaurantContainer.innerHTML = restaurants
+  const selectedCategory = $("#category-filter")?.value || CATEGORY_DEFAULT;
+  const selectedSorting = $("#sorting-filter")?.value || SORTING_DEFAULT;
+
+  let filteredList = restaurants;
+  if (selectedCategory !== CATEGORY_DEFAULT) {
+    filteredList = restaurants.filter((r) => r.category === selectedCategory);
+  }
+
+  const sortedList = sortRestaurants(filteredList, selectedSorting);
+
+  renderRestaurantList(sortedList);
+};
+
+const renderRestaurantList = (restaurants) => {
+  const $container = $(".restaurant-list");
+  $container.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))
     .join("");
 
-  const $favoriteIcons = document.querySelectorAll(".favorite-icon");
-  $favoriteIcons.forEach(($icon) => {
+  document.querySelectorAll(".favorite-icon").forEach(($icon) => {
     $icon.addEventListener("click", toggleFavorite);
   });
 };
 
-export const replaceRestaurantList = (list) => {
-  $(".restaurant-list").replaceChildren();
-  restaurantList(list);
-};
-
-export default restaurantList;
+export default updateRestaurantList;
