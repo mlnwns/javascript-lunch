@@ -1,18 +1,27 @@
-import { $ } from "../utils/domHelpers";
+import { $ } from "../utils/domHelpers.js";
+import restaurantAddModal from "../views/mainPage/components/restaurantAddModal.js";
 
 const modalHandler = () => {
-  const $modalOpenButton = $(".gnb__button");
-  const $modalContainer = $("#restaurant-modal");
-  const $closeButton = $(".button--secondary");
+  const $restaurantAddButton = $(".gnb__button");
+  const $modal = $("#restaurant-modal");
+  const $modalContainer = $(".modal-container");
   const $modalBackdrop = $(".modal-backdrop");
 
   const toggleModal = () => {
-    $modalContainer.classList.toggle("modal--open");
+    $modal.classList.toggle("modal--open");
   };
 
-  $modalOpenButton.addEventListener("click", toggleModal);
-  $closeButton.addEventListener("click", toggleModal);
+  $restaurantAddButton.addEventListener("click", () => {
+    toggleModal();
+    restaurantAddModal();
+  });
   $modalBackdrop.addEventListener("click", toggleModal);
+
+  $modalContainer.addEventListener("click", (event) => {
+    if (event.target.classList.contains("button--secondary")) {
+      toggleModal();
+    }
+  });
 };
 
 export default modalHandler;
