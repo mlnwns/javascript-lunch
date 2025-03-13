@@ -6,6 +6,7 @@ import westernIcon from "/category-western.png";
 import asianIcon from "/category-asian.png";
 import etcIcon from "/category-etc.png";
 import text from "../../../components/@common/text";
+import { getStorage, setStorage } from "../../../utils/storage";
 
 const categoryIcons = {
   korean: koreanIcon,
@@ -65,6 +66,28 @@ const restaurantDetailModal = (restaurantData) => {
       </div>
     </form>
   `;
+
+  const $detailFavoriteIcon = $(".detail-favorite-icon");
+  $detailFavoriteIcon.addEventListener("click", () => {
+    const $icon = document.createElement("img");
+    restaurantData.isFavorite = !restaurantData.isFavorite;
+    const imageSrc = restaurantData.isFavorite
+      ? "/favorite-icon-filled.png"
+      : "/favorite-icon-lined.png";
+    $icon.src = imageSrc;
+    $detailFavoriteIcon.replaceChildren($icon);
+
+    const restaurants = getStorage("restaurants");
+    const updatedRestaurants = restaurants.map((restaurant) =>
+      restaurant.id === restaurantData.id ? restaurantData : restaurant
+    );
+    setStorage("restaurants", updatedRestaurants);
+
+    const li = document.querySelector(`[data-id="${restaurantData.id}"]`);
+    const $iconInList = li.querySelector(".favorite-icon");
+
+    $iconInList.src = imageSrc;
+  });
 };
 
 export default restaurantDetailModal;
