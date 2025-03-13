@@ -1,3 +1,4 @@
+import { sortRestaurants } from "../../domain/sortRestaurants";
 import { getStorage } from "../../utils/storage";
 import buttonContainer from "./components/buttonContainer";
 import categoryFilter from "./components/categoryFilter";
@@ -12,7 +13,7 @@ import sortingFilter from "./components/sortingFilter";
 const renderMainPage = () => {
   const restaurants = getStorage("restaurants") ?? [];
 
-  restaurantList(restaurants);
+  restaurantList(sortRestaurants(restaurants));
   categoryFilter();
   sortingFilter();
   buttonContainer();
