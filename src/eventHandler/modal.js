@@ -11,6 +11,12 @@ const modalHandler = () => {
 
   const toggleModal = () => {
     $modal.classList.toggle("modal--open");
+    if ($modal.classList.contains("modal--open")) {
+      document.body.style.overflow = "hidden";
+      return;
+    }
+
+    document.body.style.overflow = "auto";
   };
 
   const manageModalEvents = (e) => {
