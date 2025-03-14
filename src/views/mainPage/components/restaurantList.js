@@ -8,15 +8,22 @@ import {
   SORTING_DEFAULT,
 } from "../../../constants/options.js";
 
-const updateRestaurantList = () => {
+const updateRestaurantList = (isFavoriteTab = false) => {
   const restaurants = getStorage("restaurants") ?? [];
 
   const selectedCategory = $("#category-filter")?.value || CATEGORY_DEFAULT;
   const selectedSorting = $("#sorting-filter")?.value || SORTING_DEFAULT;
 
   let filteredList = restaurants;
+
+  if (isFavoriteTab) {
+    filteredList = restaurants.filter((restaurant) => restaurant.isFavorite);
+  }
+
   if (selectedCategory !== CATEGORY_DEFAULT) {
-    filteredList = restaurants.filter((r) => r.category === selectedCategory);
+    filteredList = restaurants.filter(
+      (restaurant) => restaurant.category === selectedCategory
+    );
   }
 
   const sortedList = sortRestaurants(filteredList, selectedSorting);
@@ -24,7 +31,7 @@ const updateRestaurantList = () => {
   renderRestaurantList(sortedList);
 };
 
-const renderRestaurantList = (restaurants) => {
+export const renderRestaurantList = (restaurants) => {
   const $container = $(".restaurant-list");
   $container.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))
