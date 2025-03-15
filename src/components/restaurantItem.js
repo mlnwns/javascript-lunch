@@ -5,7 +5,6 @@ import japaneseIcon from "/category-japanese.png";
 import westernIcon from "/category-western.png";
 import asianIcon from "/category-asian.png";
 import etcIcon from "/category-etc.png";
-
 const categoryIcons = {
   korean: koreanIcon,
   chinese: chineseIcon,
