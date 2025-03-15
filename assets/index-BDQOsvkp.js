@@ -132,6 +132,8 @@ const japaneseIcon = "/javascript-lunch/category-japanese.png";
 const westernIcon = "/javascript-lunch/category-western.png";
 const asianIcon = "/javascript-lunch/category-asian.png";
 const etcIcon = "/javascript-lunch/category-etc.png";
+const favoriteIconFilled = "/javascript-lunch/favorite-icon-filled.png";
+const favoriteIconLined = "/javascript-lunch/favorite-icon-lined.png";
 const categoryIcons$1 = {
   korean: koreanIcon,
   chinese: chineseIcon,
@@ -171,7 +173,7 @@ const restaurantItem = (props) => {
           ${description2}
         </p>
       </div>
-      <img data-id="${id}" src="${isFavorite ? "/favorite-icon-filled.png" : "/favorite-icon-lined.png"}" alt="favorite icon" class="favorite-icon">
+      <img data-id="${id}" src="${isFavorite ? favoriteIconFilled : favoriteIconLined}" alt="favorite icon" class="favorite-icon">
     </li>
   `;
 };
@@ -523,7 +525,7 @@ const restaurantDetailModal = (restaurantData) => {
         </div>
         <div class="detail-favorite-icon">
           <img
-            src="${restaurantData.isFavorite ? "/favorite-icon-filled.png" : "/favorite-icon-lined.png"}"
+            src="${restaurantData.isFavorite ? favoriteIconFilled : favoriteIconLined}"
             alt="favorite icon"
           />
         </div>
