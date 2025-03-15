@@ -17,11 +17,11 @@ const updateRestaurantList = (isFavoriteTab = false) => {
   let filteredList = restaurants;
 
   if (isFavoriteTab) {
-    filteredList = restaurants.filter((restaurant) => restaurant.isFavorite);
+    filteredList = filteredList.filter((restaurant) => restaurant.isFavorite);
   }
 
   if (selectedCategory !== CATEGORY_DEFAULT) {
-    filteredList = restaurants.filter(
+    filteredList = filteredList.filter(
       (restaurant) => restaurant.category === selectedCategory
     );
   }
