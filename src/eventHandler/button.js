@@ -44,6 +44,14 @@ const buttonHandler = (event) => {
   $form.reset();
 
   renderRestaurantList([...restaurants, newRestaurant]);
+
+  const $allRestaurantTab = $(".all-restaurant-tab");
+  const $favoriteRestaurantTab = $(".favorite-restaurant-tab");
+
+  if ($favoriteRestaurantTab.classList.contains("select-tab-button")) {
+    $favoriteRestaurantTab.classList.remove("select-tab-button");
+    $allRestaurantTab.classList.add("select-tab-button");
+  }
 };
 
 export default buttonHandler;
