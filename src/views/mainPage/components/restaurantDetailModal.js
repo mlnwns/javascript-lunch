@@ -5,6 +5,8 @@ import japaneseIcon from "/category-japanese.png";
 import westernIcon from "/category-western.png";
 import asianIcon from "/category-asian.png";
 import etcIcon from "/category-etc.png";
+import favoriteIconFilled from "/favorite-icon-filled.png";
+import favoriteIconLined from "/favorite-icon-lined.png";
 import text from "../../../components/@common/text";
 import { getStorage, setStorage } from "../../../utils/storage";
 
@@ -41,9 +43,7 @@ const restaurantDetailModal = (restaurantData) => {
         <div class="detail-favorite-icon">
           <img
             src="${
-              restaurantData.isFavorite
-                ? "/favorite-icon-filled.png"
-                : "/favorite-icon-lined.png"
+              restaurantData.isFavorite ? favoriteIconFilled : favoriteIconLined
             }"
             alt="favorite icon"
           />
