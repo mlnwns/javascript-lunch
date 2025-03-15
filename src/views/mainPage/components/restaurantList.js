@@ -10,7 +10,6 @@ import {
 
 const updateRestaurantList = (isFavoriteTab = false) => {
   const restaurants = getStorage("restaurants") ?? [];
-
   const selectedCategory = $("#category-filter")?.value || CATEGORY_DEFAULT;
   const selectedSorting = $("#sorting-filter")?.value || SORTING_DEFAULT;
 

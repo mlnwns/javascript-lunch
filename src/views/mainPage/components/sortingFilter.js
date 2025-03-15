@@ -11,7 +11,12 @@ const sortingFilter = () => {
 
   $(".restaurant-filter-container").appendChild($sortingSelect);
 
-  $sortingSelect.addEventListener("change", updateRestaurantList);
+  $sortingSelect.addEventListener("change", (event) => {
+    const isFavoriteTab = $(".favorite-restaurant-tab").classList.contains(
+      "select-tab-button"
+    );
+    updateRestaurantList(isFavoriteTab);
+  });
 };
 
 export default sortingFilter;
