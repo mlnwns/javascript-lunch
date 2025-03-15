@@ -1,4 +1,4 @@
-import { sortRestaurants } from "../../domain/sortRestaurants";
+import { sortRestaurants } from "../../domain/sortRestaurants.ts";
 import { getStorage } from "../../utils/storage";
 import categoryFilter from "./components/categoryFilter";
 import { renderRestaurantList } from "./components/restaurantList";

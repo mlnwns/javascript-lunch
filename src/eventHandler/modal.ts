@@ -1,3 +1,4 @@
+import { Restaurant } from "../types/type.js";
 import { $ } from "../utils/domHelpers.js";
 import { getStorage, setStorage } from "../utils/storage.js";
 import restaurantAddModal from "../views/mainPage/components/restaurantAddModal.js";
@@ -5,9 +6,7 @@ import restaurantDetailModal from "../views/mainPage/components/restaurantDetail
 import updateRestaurantList from "../views/mainPage/components/restaurantList.js";
 
 const modalHandler = () => {
-  const $restaurantAddButton = $(".gnb__button");
   const $modal = $("#restaurant-modal");
-  const $modalBackdrop = $(".modal-backdrop");
 
   const toggleModal = () => {
     $modal.classList.toggle("modal--open");
@@ -19,17 +18,19 @@ const modalHandler = () => {
     document.body.style.overflow = "auto";
   };
 
-  const manageModalEvents = (e) => {
-    const target = e.target;
+  const manageModalEvents = (e: MouseEvent) => {
+    const target = e.target as HTMLElement;
 
     if (target.closest(".restaurant")) {
-      let currentTarget = target;
-      while (!currentTarget.classList.contains("restaurant")) {
-        currentTarget = currentTarget.parentNode;
+      let currentTarget: HTMLElement | null = target;
+      while (currentTarget && !currentTarget.classList.contains("restaurant")) {
+        currentTarget = currentTarget.parentNode as HTMLElement | null;
       }
+      if (!currentTarget) return;
 
       const currentRestaurantId = currentTarget.dataset.id;
-      const restaurantData = getStorage("restaurants").find(
+      const restaurants: Restaurant[] = getStorage("restaurants") ?? [];
+      const restaurantData = restaurants.find(
         ({ id }) => id === currentRestaurantId
       );
 
@@ -51,12 +52,12 @@ const modalHandler = () => {
     }
 
     if (target.closest(".button--delete")) {
-      const deleteButton = target.closest(".button--delete");
+      const deleteButton = target.closest(".button--delete") as HTMLElement;
       const currentRestaurantId = deleteButton.dataset.deleteTarget;
 
       if (!currentRestaurantId) return;
 
-      const restaurants = getStorage("restaurants") ?? [];
+      const restaurants: Restaurant[] = getStorage("restaurants") ?? [];
       const updatedRestaurants = restaurants.filter(
         (restaurant) => restaurant.id !== currentRestaurantId
       );

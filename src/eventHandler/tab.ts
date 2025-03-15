@@ -1,7 +1,7 @@
 import { $ } from "../utils/domHelpers";
 import updateRestaurantList from "../views/mainPage/components/restaurantList";
 
-const tabHandler = (selectedTab) => {
+const tabHandler = (selectedTab: HTMLElement) => {
   const $allTab = $(".all-restaurant-tab");
   const $favoriteTab = $(".favorite-restaurant-tab");
 

@@ -1,8 +1,8 @@
 import { $ } from "../../../utils/domHelpers.js";
 import { getStorage } from "../../../utils/storage.js";
-import { sortRestaurants } from "../../../domain/sortRestaurants.js";
+import { sortRestaurants } from "../../../domain/sortRestaurants.ts";
 import restaurantItem from "../../../components/restaurantItem.js";
-import toggleFavorite from "../../../eventHandler/toggleFavorite.js";
+import toggleFavorite from "../../../eventHandler/toggleFavorite.ts";
 import {
   CATEGORY_DEFAULT,
   SORTING_DEFAULT,

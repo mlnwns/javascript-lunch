@@ -1,10 +1,13 @@
+import { Restaurant } from "../types/type.ts";
 import { getStorage, setStorage } from "../utils/storage.ts";
 
-const toggleFavorite = (event) => {
+const toggleFavorite = (event: MouseEvent) => {
   event.stopPropagation();
-  const $icon = event.target;
+
+  const $icon = event.target as HTMLImageElement;
   const restaurantId = $icon.dataset.id;
-  let restaurants = getStorage("restaurants");
+
+  let restaurants: Restaurant[] = getStorage("restaurants") ?? [];
 
   restaurants = restaurants.map((restaurant) => {
     if (restaurant.id === restaurantId) {

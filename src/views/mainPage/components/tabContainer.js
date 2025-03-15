@@ -1,4 +1,4 @@
-import tabHandler from "../../../eventHandler/tab";
+import tabHandler from "../../../eventHandler/tab.ts";
 import { $ } from "../../../utils/domHelpers";
 
 const tabContainer = () => {
