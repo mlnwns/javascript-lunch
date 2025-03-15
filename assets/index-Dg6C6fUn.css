@@ -115,7 +115,6 @@ body {
 .restaurant-list-container {
   display: flex;
   flex-direction: column;
-
   padding: 0 16px;
   margin: 16px 0;
 }
@@ -123,7 +122,7 @@ body {
 .restaurant {
   display: flex;
   align-items: flex-start;
-
+  justify-content: space-between;
   padding: 16px 8px;
 
   border-bottom: 1px solid #e9eaed;
@@ -151,6 +150,7 @@ body {
 
 .restaurant__info {
   display: flex;
+  width: 100%;
   flex-direction: column;
   justify-content: flex-start;
 }
@@ -287,8 +287,78 @@ input[name="link"] {
   color: var(--grey-300);
 }
 
+.button--close {
+  background: var(--primary-color);
+
+  color: var(--grey-100);
+}
+
+.button--delete {
+  border: 1px solid var(--grey-300);
+  background: transparent;
+
+  color: var(--grey-300);
+}
+
 .button--primary {
   background: var(--primary-color);
 
   color: var(--grey-100);
+}
+
+.favorite-icon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+
+.detail-text {
+  margin: 16px 0;
+}
+
+.detail-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail-footer {
+  margin-top: 32px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.restaurant-tab-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 16px;
+  padding: 0 16px;
+  gap: 16px;
+  position: relative;
+}
+
+.tab-button {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: var(--grey-100);
+  padding: 1rem;
+  cursor: pointer;
+  color: var(--grey-300);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.5px;
+  border-bottom: 2px solid var(--grey-200);
+}
+
+.select-tab-button {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.empty-restaurant-list {
+  display: flex;
+  justify-content: center;
+  margin-top: 384px;
+  font-size: 24px;
 }
