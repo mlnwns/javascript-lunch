@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { $ } from "../utils/domHelpers";
-import restaurantList from "../views/mainPage/components/restaurantList";
+import { renderRestaurantList } from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
 import { escapeHtml } from "../utils/escapeHtml";
 import { setStorage, getStorage } from "../utils/storage";
@@ -39,10 +39,11 @@ const buttonHandler = (event) => {
 
   const $restaurantModal = $("#restaurant-modal");
   $restaurantModal.classList.remove("modal--open");
+  document.body.style.overflow = "auto";
 
   $form.reset();
 
-  restaurantList([...restaurants, newRestaurant]);
+  renderRestaurantList([...restaurants, newRestaurant]);
 };
 
 export default buttonHandler;

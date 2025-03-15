@@ -33,6 +33,16 @@ const updateRestaurantList = (isFavoriteTab = false) => {
 
 export const renderRestaurantList = (restaurants) => {
   const $container = $(".restaurant-list");
+
+  if (restaurants.length === 0) {
+    $container.innerHTML = `
+      <div class="empty-restaurant-list">
+        <span>등록된 음식점이 없습니다.</span>
+      </div>
+    `;
+    return;
+  }
+
   $container.innerHTML = restaurants
     .map((restaurant) => restaurantItem(restaurant))
     .join("");

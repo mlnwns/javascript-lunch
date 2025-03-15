@@ -51,6 +51,9 @@ const modalHandler = () => {
     }
 
     if (target.closest(".button--delete")) {
+      const deleteButton = target.closest(".button--delete");
+      const currentRestaurantId = deleteButton.dataset.deleteTarget;
+
       if (!currentRestaurantId) return;
 
       const restaurants = getStorage("restaurants") ?? [];
