@@ -4,6 +4,11 @@ import { $ } from "../../../../utils/domHelpers";
 import updateRestaurantList from "../display/restaurantList";
 
 const sortingFilter = () => {
+  const existingSelect = $("#sorting-filter");
+  if (existingSelect) {
+    existingSelect.remove();
+  }
+
   const $sortingSelect = select({
     options: SORTING_FILTER_OPTIONS,
     id: "sorting-filter",

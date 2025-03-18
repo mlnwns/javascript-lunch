@@ -5,6 +5,11 @@ import { $ } from "../../../../utils/domHelpers";
 const nameInput = () => {
   const $inputContainer = $(".name-input");
 
+  const existingInput = $("#name");
+  if (existingInput) {
+    existingInput.remove();
+  }
+
   $inputContainer.innerHTML = `
     ${input({
       id: "name",
@@ -14,13 +19,15 @@ const nameInput = () => {
     })}
 `;
 
-  $inputContainer.addEventListener("input", (event) => {
+  const $nameInput = $("#name");
+
+  $nameInput.addEventListener("input", (event) => {
     if (event.target.value.length > 20) {
       alert(ERROR.INVALID_INPUT_LENGTH(20));
     }
   });
 
-  $inputContainer.addEventListener("change", (event) => {
+  $nameInput.addEventListener("change", (event) => {
     if (event.target.value.trim() === "") {
       alert(ERROR.INVALID_EMPTY_INPUT);
       event.target.value = "";

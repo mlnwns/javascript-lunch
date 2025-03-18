@@ -75,15 +75,12 @@ const restaurantDetailModal = (restaurantData) => {
     </form>
   `;
 
-  const $detailFavoriteIcon = $(".detail-favorite-icon");
+  const $detailFavoriteIcon = $(".detail-favorite-icon img");
   $detailFavoriteIcon.addEventListener("click", () => {
-    const $icon = document.createElement("img");
     restaurantData.isFavorite = !restaurantData.isFavorite;
-    const imageSrc = restaurantData.isFavorite
-      ? "/favorite-icon-filled.png"
-      : "/favorite-icon-lined.png";
-    $icon.src = imageSrc;
-    $detailFavoriteIcon.replaceChildren($icon);
+    $detailFavoriteIcon.src = restaurantData.isFavorite
+      ? favoriteIconFilled
+      : favoriteIconLined;
 
     const restaurants = restaurantStorage.getStorage();
     const updatedRestaurants = restaurants.map((restaurant) =>
@@ -94,7 +91,7 @@ const restaurantDetailModal = (restaurantData) => {
     const li = document.querySelector(`[data-id="${restaurantData.id}"]`);
     const $iconInList = li.querySelector(".favorite-icon");
 
-    $iconInList.src = imageSrc;
+    $iconInList.src = $detailFavoriteIcon.src;
   });
 };
 
