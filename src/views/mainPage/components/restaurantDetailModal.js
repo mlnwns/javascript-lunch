@@ -8,7 +8,7 @@ import etcIcon from "/category-etc.png";
 import favoriteIconFilled from "/favorite-icon-filled.png";
 import favoriteIconLined from "/favorite-icon-lined.png";
 import text from "../../../components/@common/text";
-import { getStorage, setStorage } from "../../../utils/storage";
+import { StorageController } from "../../../utils/storage";
 
 const categoryIcons = {
   korean: koreanIcon,
@@ -27,6 +27,8 @@ const categoryAlt = {
   asian: "아시아식",
   etc: "기타",
 };
+
+const restaurantStorage = new StorageController("restaurants");
 
 const restaurantDetailModal = (restaurantData) => {
   const $modalContainer = $(".modal-container");
@@ -83,11 +85,11 @@ const restaurantDetailModal = (restaurantData) => {
     $icon.src = imageSrc;
     $detailFavoriteIcon.replaceChildren($icon);
 
-    const restaurants = getStorage("restaurants");
+    const restaurants = restaurantStorage.getStorage();
     const updatedRestaurants = restaurants.map((restaurant) =>
       restaurant.id === restaurantData.id ? restaurantData : restaurant
     );
-    setStorage("restaurants", updatedRestaurants);
+    restaurantStorage.setStorage(updatedRestaurants);
 
     const li = document.querySelector(`[data-id="${restaurantData.id}"]`);
     const $iconInList = li.querySelector(".favorite-icon");

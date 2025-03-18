@@ -3,8 +3,10 @@ import { $ } from "../utils/domHelpers";
 import { renderRestaurantList } from "../views/mainPage/components/restaurantList";
 import { ERROR } from "../constants/messages";
 import { escapeHtml } from "../utils/escapeHtml";
-import { setStorage, getStorage } from "../utils/storage";
+import { StorageController } from "../utils/storage";
 import { Restaurant } from "../types/type";
+
+const restaurantStorage = new StorageController<Restaurant[]>("restaurants");
 
 const buttonHandler = (event: Event) => {
   event.preventDefault();
@@ -37,8 +39,8 @@ const buttonHandler = (event: Event) => {
     return;
   }
 
-  const restaurants = getStorage("restaurants") ?? [];
-  setStorage("restaurants", [...restaurants, newRestaurant]);
+  const restaurants = restaurantStorage.getStorage() ?? [];
+  restaurantStorage.setStorage([...restaurants, newRestaurant]);
 
   const $restaurantModal = $("#restaurant-modal");
   $restaurantModal.classList.remove("modal--open");

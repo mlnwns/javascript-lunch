@@ -1,9 +1,11 @@
 import { Restaurant } from "../types/type.js";
 import { $ } from "../utils/domHelpers.js";
-import { getStorage, setStorage } from "../utils/storage.js";
+import { StorageController } from "../utils/storage.js";
 import restaurantAddModal from "../views/mainPage/components/restaurantAddModal.js";
 import restaurantDetailModal from "../views/mainPage/components/restaurantDetailModal.js";
 import updateRestaurantList from "../views/mainPage/components/restaurantList.js";
+
+const restaurantStorage = new StorageController<Restaurant[]>("restaurants");
 
 const modalHandler = () => {
   const $modal = $("#restaurant-modal");
@@ -29,7 +31,7 @@ const modalHandler = () => {
       if (!currentTarget) return;
 
       const currentRestaurantId = currentTarget.dataset.id;
-      const restaurants: Restaurant[] = getStorage("restaurants") ?? [];
+      const restaurants: Restaurant[] = restaurantStorage.getStorage() ?? [];
       const restaurantData = restaurants.find(
         ({ id }) => id === currentRestaurantId
       );
@@ -57,12 +59,12 @@ const modalHandler = () => {
 
       if (!currentRestaurantId) return;
 
-      const restaurants: Restaurant[] = getStorage("restaurants") ?? [];
+      const restaurants: Restaurant[] = restaurantStorage.getStorage() ?? [];
       const updatedRestaurants = restaurants.filter(
         (restaurant) => restaurant.id !== currentRestaurantId
       );
 
-      setStorage("restaurants", updatedRestaurants);
+      restaurantStorage.setStorage(updatedRestaurants);
       updateRestaurantList();
       toggleModal();
     }

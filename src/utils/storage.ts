@@ -1,33 +1,31 @@
-const storageController = (storage: Storage) => {
-  const getStorage = (key: string) => {
-    const item = storage.getItem(key);
+export class StorageController<T> {
+  private storage: Storage;
+  private key: string;
+
+  constructor(key: string, storage: Storage = localStorage) {
+    this.storage = storage;
+    this.key = key;
+  }
+
+  getStorage(): T | null {
+    const item = this.storage.getItem(this.key);
 
     if (item) {
       return JSON.parse(item);
     }
 
     return null;
+  }
+
+  setStorage = (value: T): void => {
+    this.storage.setItem(this.key, JSON.stringify(value));
   };
 
-  const setStorage = (key: string, value: any) => {
-    storage.setItem(key, JSON.stringify(value));
+  removeStorage = () => {
+    this.storage.removeItem(this.key);
   };
 
-  const removeStorage = (key: string) => {
-    storage.removeItem(key);
+  clearStorage = (): void => {
+    this.storage.clear();
   };
-
-  const clearStorage = () => {
-    storage.clear();
-  };
-
-  return {
-    getStorage,
-    setStorage,
-    removeStorage,
-    clearStorage,
-  };
-};
-
-export const { getStorage, setStorage, removeStorage } =
-  storageController(localStorage);
+}

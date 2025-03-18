@@ -1,5 +1,5 @@
 import { $ } from "../../../utils/domHelpers.js";
-import { getStorage } from "../../../utils/storage.js";
+import { StorageController } from "../../../utils/storage.js";
 import { sortRestaurants } from "../../../domain/sortRestaurants.ts";
 import restaurantItem from "../../../components/restaurantItem.js";
 import toggleFavorite from "../../../eventHandler/toggleFavorite.ts";
@@ -8,8 +8,10 @@ import {
   SORTING_DEFAULT,
 } from "../../../constants/options.js";
 
+const restaurantStorage = new StorageController("restaurants");
+
 const updateRestaurantList = (isFavoriteTab = false) => {
-  const restaurants = getStorage("restaurants") ?? [];
+  const restaurants = restaurantStorage.getStorage() ?? [];
   const selectedCategory = $("#category-filter")?.value || CATEGORY_DEFAULT;
   const selectedSorting = $("#sorting-filter")?.value || SORTING_DEFAULT;
 
