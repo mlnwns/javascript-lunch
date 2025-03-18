@@ -1,7 +1,7 @@
-import select from "../../../components/@common/select.js";
-import { CATEGORY_FILTER_OPTIONS } from "../../../constants/options.js";
-import updateRestaurantList from "./restaurantList.js";
-import { $ } from "../../../utils/domHelpers.js";
+import select from "../../../../components/@common/select";
+import { CATEGORY_FILTER_OPTIONS } from "../../../../constants/options";
+import { $ } from "../../../../utils/domHelpers";
+import updateRestaurantList from "../display/restaurantList";
 
 const categoryFilter = () => {
   const $categorySelect = select({

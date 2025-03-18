@@ -1,12 +1,12 @@
-import { $ } from "../../../utils/domHelpers.js";
-import { StorageController } from "../../../utils/storage.js";
-import { sortRestaurants } from "../../../domain/sortRestaurants.ts";
-import restaurantItem from "../../../components/restaurantItem.js";
-import toggleFavorite from "../../../eventHandler/toggleFavorite.ts";
+import { $ } from "../../../../utils/domHelpers.js";
+import { StorageController } from "../../../../utils/storage.js";
+import { sortRestaurants } from "../../../../domain/sortRestaurants.ts";
+import restaurantItem from "../../../../components/restaurantItem.js";
+import toggleFavorite from "../../../../eventHandler/toggleFavorite.ts";
 import {
   CATEGORY_DEFAULT,
   SORTING_DEFAULT,
-} from "../../../constants/options.js";
+} from "../../../../constants/options.js";
 
 const restaurantStorage = new StorageController("restaurants");
 

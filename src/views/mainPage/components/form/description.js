@@ -1,6 +1,6 @@
-import { $ } from "../../../utils/domHelpers";
-import textArea from "../../../components/@common/textArea";
-import { ERROR } from "../../../constants/messages";
+import textArea from "../../../../components/@common/textArea";
+import { ERROR } from "../../../../constants/messages";
+import { $ } from "../../../../utils/domHelpers";
 
 const description = () => {
   const $descriptionContainer = $(".description-area");

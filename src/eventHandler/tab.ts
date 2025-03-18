@@ -1,5 +1,5 @@
 import { $ } from "../utils/domHelpers";
-import updateRestaurantList from "../views/mainPage/components/restaurantList";
+import updateRestaurantList from "../views/mainPage/components/display/restaurantList";
 
 const tabHandler = (selectedTab: HTMLElement) => {
   const $allTab = $(".all-restaurant-tab");

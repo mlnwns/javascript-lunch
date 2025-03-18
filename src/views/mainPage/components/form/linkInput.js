@@ -1,6 +1,6 @@
-import { $ } from "../../../utils/domHelpers";
-import input from "../../../components/@common/input";
-import { ERROR } from "../../../constants/messages";
+import input from "../../../../components/@common/input";
+import { ERROR } from "../../../../constants/messages";
+import { $ } from "../../../../utils/domHelpers";
 
 const linkInput = () => {
   const $linkInputContainer = $(".link-input");

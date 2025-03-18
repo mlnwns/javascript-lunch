@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 import { $ } from "../utils/domHelpers";
-import { renderRestaurantList } from "../views/mainPage/components/restaurantList";
+import { renderRestaurantList } from "../views/mainPage/components/display/restaurantList";
 import { ERROR } from "../constants/messages";
 import { escapeHtml } from "../utils/escapeHtml";
 import { StorageController } from "../utils/storage";

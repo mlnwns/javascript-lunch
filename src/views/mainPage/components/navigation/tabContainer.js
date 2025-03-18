@@ -1,5 +1,5 @@
-import tabHandler from "../../../eventHandler/tab.ts";
-import { $ } from "../../../utils/domHelpers";
+import tabHandler from "../../../../eventHandler/tab.ts";
+import { $ } from "../../../../utils/domHelpers.js";
 
 const tabContainer = () => {
   const $restaurantTabContainer = $(".restaurant-tab-container");

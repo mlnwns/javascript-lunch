@@ -1,6 +1,6 @@
-import dropDown from "../../../components/@common/dropDown";
-import { CATEGORY_OPTIONS } from "../../../constants/options";
-import { $ } from "../../../utils/domHelpers";
+import dropDown from "../../../../components/@common/dropDown";
+import { CATEGORY_OPTIONS } from "../../../../constants/options";
+import { $ } from "../../../../utils/domHelpers";
 
 const categorySelect = () => {
   const $categorySelectContainer = $(".category-select");

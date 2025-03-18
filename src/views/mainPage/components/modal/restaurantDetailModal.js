@@ -1,4 +1,4 @@
-import { $ } from "../../../utils/domHelpers";
+import { $ } from "../../../../utils/domHelpers";
 import koreanIcon from "/category-korean.png";
 import chineseIcon from "/category-chinese.png";
 import japaneseIcon from "/category-japanese.png";
@@ -7,8 +7,8 @@ import asianIcon from "/category-asian.png";
 import etcIcon from "/category-etc.png";
 import favoriteIconFilled from "/favorite-icon-filled.png";
 import favoriteIconLined from "/favorite-icon-lined.png";
-import text from "../../../components/@common/text";
-import { StorageController } from "../../../utils/storage";
+import text from "../../../../components/@common/text";
+import { StorageController } from "../../../../utils/storage";
 
 const categoryIcons = {
   korean: koreanIcon,

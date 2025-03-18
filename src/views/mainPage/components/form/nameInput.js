@@ -1,6 +1,6 @@
-import input from "../../../components/@common/input";
-import { $ } from "../../../utils/domHelpers";
-import { ERROR } from "../../../constants/messages";
+import input from "../../../../components/@common/input";
+import { ERROR } from "../../../../constants/messages";
+import { $ } from "../../../../utils/domHelpers";
 
 const nameInput = () => {
   const $inputContainer = $(".name-input");

@@ -1,9 +1,9 @@
 import { sortRestaurants } from "../../domain/sortRestaurants.ts";
-import categoryFilter from "./components/categoryFilter";
-import { renderRestaurantList } from "./components/restaurantList";
-import sortingFilter from "./components/sortingFilter";
-import tabContainer from "./components/tabContainer";
 import { StorageController } from "../../utils/storage.ts";
+import sortingFilter from "./components/filters/sortingFilter.js";
+import categoryFilter from "./components/filters/categoryFilter.js";
+import tabContainer from "./components/navigation/tabContainer.js";
+import { renderRestaurantList } from "./components/display/restaurantList.js";
 
 const restaurantStorage = new StorageController("restaurants");
 

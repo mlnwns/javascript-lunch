@@ -1,10 +1,10 @@
-import { $ } from "../../../utils/domHelpers";
-import buttonContainer from "./buttonContainer";
-import categorySelect from "./categorySelect";
-import description from "./description";
-import distanceSelect from "./distanceSelect";
-import linkInput from "./linkInput";
-import nameInput from "./nameInput";
+import { $ } from "../../../../utils/domHelpers";
+import categorySelect from "../form/categorySelect";
+import description from "../form/description";
+import distanceSelect from "../form/distanceSelect";
+import linkInput from "../form/linkInput";
+import nameInput from "../form/nameInput";
+import buttonContainer from "../navigation/buttonContainer";
 
 const restaurantAddModal = () => {
   const $modalContainer = $(".modal-container");

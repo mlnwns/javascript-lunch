@@ -1,9 +1,9 @@
 import { Restaurant } from "../types/type.js";
 import { $ } from "../utils/domHelpers.js";
 import { StorageController } from "../utils/storage.js";
-import restaurantAddModal from "../views/mainPage/components/restaurantAddModal.js";
-import restaurantDetailModal from "../views/mainPage/components/restaurantDetailModal.js";
-import updateRestaurantList from "../views/mainPage/components/restaurantList.js";
+import restaurantAddModal from "../views/mainPage/components/modal/restaurantAddModal.js";
+import restaurantDetailModal from "../views/mainPage/components/modal/restaurantDetailModal.js";
+import updateRestaurantList from "../views/mainPage/components/display/restaurantList.js";
 
 const restaurantStorage = new StorageController<Restaurant[]>("restaurants");
 

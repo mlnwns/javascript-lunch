@@ -1,7 +1,7 @@
-import select from "../../../components/@common/select.js";
-import { SORTING_FILTER_OPTIONS } from "../../../constants/options.js";
-import { $ } from "../../../utils/domHelpers.js";
-import updateRestaurantList from "./restaurantList.js";
+import select from "../../../../components/@common/select";
+import { SORTING_FILTER_OPTIONS } from "../../../../constants/options";
+import { $ } from "../../../../utils/domHelpers";
+import updateRestaurantList from "../display/restaurantList";
 
 const sortingFilter = () => {
   const $sortingSelect = select({
