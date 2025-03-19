@@ -1,25 +1,13 @@
 import input from "../../../../components/@common/input";
 import { ERROR } from "../../../../constants/messages";
-import { $ } from "../../../../utils/domHelpers";
 
 const nameInput = () => {
-  const $inputContainer = $(".name-input");
-
-  const existingInput = $("#name");
-  if (existingInput) {
-    existingInput.remove();
-  }
-
-  $inputContainer.innerHTML = `
-    ${input({
-      id: "name",
-      labelText: "이름",
-      isRequired: true,
-      placeholder: "20자 이내로 입력해 주세요.",
-    })}
-`;
-
-  const $nameInput = $("#name");
+  const $nameInput = input({
+    id: "name",
+    labelText: "이름",
+    isRequired: true,
+    placeholder: "20자 이내로 입력해 주세요.",
+  });
 
   $nameInput.addEventListener("input", (event) => {
     if (event.target.value.length > 20) {
@@ -33,6 +21,8 @@ const nameInput = () => {
       event.target.value = "";
     }
   });
+
+  return $nameInput;
 };
 
 export default nameInput;

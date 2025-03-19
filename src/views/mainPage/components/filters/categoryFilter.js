@@ -14,14 +14,14 @@ const categoryFilter = () => {
     options: CATEGORY_FILTER_OPTIONS,
   });
 
-  $(".restaurant-filter-container").appendChild($categorySelect);
-
   $categorySelect.addEventListener("change", (event) => {
     const isFavoriteTab = $(".favorite-restaurant-tab").classList.contains(
       "select-tab-button"
     );
     updateRestaurantList(isFavoriteTab);
   });
+
+  return $categorySelect;
 };
 
 export default categoryFilter;

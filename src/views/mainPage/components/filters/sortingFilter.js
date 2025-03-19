@@ -14,14 +14,14 @@ const sortingFilter = () => {
     id: "sorting-filter",
   });
 
-  $(".restaurant-filter-container").appendChild($sortingSelect);
-
   $sortingSelect.addEventListener("change", (event) => {
     const isFavoriteTab = $(".favorite-restaurant-tab").classList.contains(
       "select-tab-button"
     );
     updateRestaurantList(isFavoriteTab);
   });
+
+  return $sortingSelect;
 };
 
 export default sortingFilter;

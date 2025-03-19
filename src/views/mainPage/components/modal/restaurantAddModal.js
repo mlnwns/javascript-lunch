@@ -14,8 +14,7 @@ const restaurantAddModal = () => {
     <form>
       <div class="form-item form-item--required category-select"></div>
       <div class="form-item form-item--required name-input"></div>
-      <div class="form-item form-item--required distance-select">
-      </div>
+      <div class="form-item form-item--required distance-select"></div>
       <div class="form-item description-area"></div>
       <div class="form-item link-input"></div>
       <div class="button-container">
@@ -25,11 +24,19 @@ const restaurantAddModal = () => {
   `;
 
   buttonContainer();
-  nameInput();
-  linkInput();
-  distanceSelect();
-  categorySelect();
-  description();
+  const $categorySelectContainer = $(".category-select");
+  const $nameInputContainer = $(".name-input");
+  const $distanceSelectContainer = $(".distance-select");
+  const $descriptionContainer = $(".description-area");
+  const $linkInputContainer = $(".link-input");
+
+  if ($categorySelectContainer)
+    $categorySelectContainer.appendChild(categorySelect());
+  if ($nameInputContainer) $nameInputContainer.appendChild(nameInput());
+  if ($distanceSelectContainer)
+    $distanceSelectContainer.appendChild(distanceSelect());
+  if ($descriptionContainer) $descriptionContainer.appendChild(description());
+  if ($linkInputContainer) $linkInputContainer.appendChild(linkInput());
 };
 
 export default restaurantAddModal;
